@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const removeFromArray = function(arr) {
+            // console.log(arguments[0]);
+            // console.log(arguments[1]);
+            // console.log(arguments.length);
+            console.log(`pre array ${arr}`);
+            const len = arguments.length;
+            console.log(`length of arguments is ${len}`);
+            if(len > 1){
+                for(let i = 1; i < len; i++){
+                    let remove = arguments[i];
+                    let included = arr.includes(remove);
+                    let index = arr.indexOf(remove);
+
+                    console.log(`i: ${i}`);
+                    console.log(`remove: ${remove}`);
+                    console.log(`included: ${included}`);
+                    console.log(`index: ${index}`);
+                    if(included && index > 0){
+                        arr.splice(index, 1);
+                        console.log(`we are removing index: ${index} item: ${remove}`);
+                        if(included){
+                            i--;
+                        }
+                    }
+                }
+            }
+            console.log(`pst array ${arr}`);
+        };
+
+        removeFromArray([1, 2, 2, 3], 2);
+
+</script>
+</body>
+</html>
